@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Телеграмм-каналы и чаты</h1>
+  <ul>
+    {% for channel in channels %}
+    <div><a href="{% url 'channel_detail' channel.pk %}">{{ channel.name }}</a></div>
+    {% empty %}
+    <li>Нет добавленных каналов</li>
+    <p><a href="{% url 'channel_create' %}">Добавить канал</a></p>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock content %}

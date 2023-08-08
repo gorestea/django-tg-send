@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Добавить автомобиль</h1>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% for f in form %}
+    <p><div class="mb-1" for="{{ f.id_for_label }}">{{f.label}}</div>{{f}}</p>
+  {% endfor %}
+  <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+{% endblock %}

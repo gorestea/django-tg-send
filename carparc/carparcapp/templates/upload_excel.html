@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Загрузить Excel</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      <label for="excel_file">Выберите файл Excel:</label>
+      <br>
+      <input type="file" name="excel_file" id="excel_file">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Добавить в базу данных</button>
+  </form>
+{% endblock %}

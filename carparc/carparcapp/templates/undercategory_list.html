@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for undercategory in undercategories %}
+    <a href="">{{ undercategory.name }}</a>
+{% endfor %}
+{% endblock %}

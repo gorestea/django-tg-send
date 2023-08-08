@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Текст сообщения: {{ new_car.description }}</p>
+{% for photo in images %}
+  <p><img src="{{ photo.image.url }}" alt=""></p>
+{% endfor %}
+
+<div>
+  <p><a href="{% url 'new_car_edit' new_car.pk %}"><button class="btn btn-primary">Изменить</button></a>
+  <form action="" method="POST">
+    {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+</div>
+{% endblock %}

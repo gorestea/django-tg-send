@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Автомобили: </h1>
+<ul>
+{% for car in cars %}
+  {% if car.price != 0 %}
+  <div>
+    <a href="{% url 'car_details' car.pk %}">{{ car.category }}, {{ car.cabin }}, {{ car.formula }}, {{ car.power }}</a> - {{ car.price }} руб.
+    {% if car.photo %}
+    <img src="{{ car.photo.url }}" class="img-thumbnail" style="width: 200; height: 200px;">
+    {% endif %}
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% for new_car in new_cars %}
+  <div>
+    <a href="{% url 'new_car_details' new_car.pk %}">{{ new_car.description }}</a>
+    {% if new_car.photo %}
+    <img src="{{ new_car.photo.url }}" class="img-thumbnail" style="width: 200; height: 200px;">
+    {% endif %}
+  </div>
+  {% endfor %}
+</ul>
+{% endblock %}

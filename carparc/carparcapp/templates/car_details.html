@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ car.make }} {{ car.type }}</h1>
+<p>Цена: {{ car.price }} руб.</p>
+<p>Кабина: {{ car.cabin }}</p>
+<p>Формула: {{ car.formula }}</p>
+<p>Двигатель: {{ car.engine }}</p>
+<p>Мощность: {{ car.power }}</p>
+<p>КПП: {{ car.transmission }}</p>
+<p>Мосты: {{ car.axle }}</p>
+<p>Евро-класс: {{ car.euro_class }}</p>
+{% if car.photo %}
+<p><img src="{{ car.photo.url }}"  alt=""></p>
+{% endif %}
+
+<div>
+  <p><a href="{% url 'car_edit' car.pk %}"><button class="btn btn-primary">Изменить</button></a>
+  <form action="" method="POST">
+    {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+</div>
+{% endblock %}
